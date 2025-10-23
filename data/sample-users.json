@@ -1,0 +1,14 @@
+[
+  {
+    "userID": 1,
+    "name": "Demo Admin",
+    "email": "admin@iris.com",
+    "role": "ADMIN"
+  },
+  {
+    "userID": 2,
+    "name": "Nina Pim",
+    "email": "nina21551@gmail.com",
+    "role": "CUSTOMER"
+  }
+]

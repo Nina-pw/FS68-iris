@@ -1,0 +1,14 @@
+[
+  {
+    "pname": "Velvet Matte Lipstick",
+    "description": "Intense pigment, matte but comfy.",
+    "base_price": "420.00",
+    "category": "LIPS",
+    "primary_image_url": "http://localhost:9000/product-images/example1.jpg",
+    "images": [],
+    "variants": [
+      { "sku": "SKU-LIP-001", "shade_name": "Brick", "shade_code": "#8a3b33", "price": "420.00", "stock_qty": 15, "is_active": true },
+      { "sku": "SKU-LIP-002", "shade_name": "Rose",  "shade_code": "#b85a6b", "price": "420.00", "stock_qty": 15, "is_active": true }
+    ]
+  }
+]
