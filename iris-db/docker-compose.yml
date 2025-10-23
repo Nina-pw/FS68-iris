@@ -1,0 +1,24 @@
+name: fs-iris
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: iris_db
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432" 
+    volumes:
+      - fs-data:/var/lib/postgresql/data
+      - ./_entrypoint:/docker-entrypoint-initdb.d
+    environment:
+      - TZ=Asia/Bangkok
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_APP_USER=${POSTGRES_APP_USER}
+      - POSTGRES_APP_PASSWORD=${POSTGRES_APP_PASSWORD}
+    networks:
+      - fs-net
+volumes:
+  fs-data:
+networks:
+  fs-net:
+    external: true

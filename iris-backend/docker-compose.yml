@@ -1,0 +1,60 @@
+name: fs-iris # You can also change this to another name to avoid warning with existing group.
+services:
+  backend:
+    container_name: iris-backend
+    build: .
+    ports:
+      - ${PORT}:3000
+    networks:
+      - fs-net
+    env_file:
+      - .env.docker
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_APP_USER=${POSTGRES_APP_USER}
+      - POSTGRES_APP_PASSWORD=${POSTGRES_APP_PASSWORD}
+    volumes:
+      - ./logs:/app/logs
+    post_start:
+      - command:
+          [
+            "sh",
+            "-c",
+            'npm run db:migrate | awk ''{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0; fflush(); }'' | tee -a /app/logs/migration.log',
+          ]
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    restart: unless-stopped
+    command: server /data --console-address ":9090"
+
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-minioadmin}
+      TZ: Asia/Bangkok
+
+    ports:
+      - "9000:9000"   # S3 / API endpoint
+      - "9090:9090"   # Web console
+
+    volumes:
+      - minio_data:/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "mc alias set local http://localhost:9000 ${MINIO_ACCESS_KEY:-minioadmin} ${MINIO_SECRET_KEY:-minioadmin} || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+    networks:
+      - fs-net
+
+volumes:
+  minio_data:
+
+networks:
+  fs-net:   # ตรวจสอบด้วยคำสั่ง: docker network ls
+    external: true

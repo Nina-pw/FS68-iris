@@ -1,0 +1,255 @@
+/* Topbar */
+.adm__top {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #fbf9f2;
+  border-bottom: 1px solid #eee;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 10px 18px;
+}
+.adm__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+.adm__logo {
+  height: 28px;
+  width: auto;
+}
+.adm__topRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.adm__searchWrap {
+  position: relative;
+}
+.adm__search {
+  width: clamp(220px, 26vw, 360px);
+  height: 36px;
+  padding: 8px 38px 8px 14px;
+  border: 1.5px solid #7b1e2b;
+  border-radius: 999px;
+  background: #fff;
+}
+.adm__searchIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.6;
+}
+.adm__ico {
+  color: #7b1e2b;
+  opacity: 0.9;
+}
+
+/* Body */
+.adm__body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 60px); /* ลบ topbar */
+  overflow: hidden; /* ป้องกัน scroll ผสมกัน */
+}
+/* Sidebar ติดขอบหน้าจอ */
+.adm__side {
+  border-right: 1px solid #eee;
+  padding: 14px 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  position: sticky; /* ติดอยู่ขณะ scroll */
+  top: 60px; /* ตรงกับความสูง topbar */
+  height: calc(100vh - 60px); /* ให้เต็มความสูงที่เหลือหลัง topbar */
+  overflow-y: auto; /* scroll ถ้ามีเมนูเยอะ */
+  z-index: 2;
+}
+.adm__sectTitle {
+  font-size: 12px;
+  color: #888;
+  margin: 6px 8px;
+}
+.adm__item {
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+}
+.adm__item.active,
+.adm__item:hover {
+  background: #ffe6ea;
+  color: #7b1e2b;
+}
+
+
+/* Main content scroll แยก */
+.adm__main {
+  padding: 18px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+/* ---- reset ปุ่มไอคอนให้ไม่มีกรอบ/พื้นหลังเลย ---- */
+.adminbar__icon{
+  all: unset;                 /* เคลียร์สไตล์เดิมของปุ่ม + global */
+  appearance: none;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  line-height: 0;
+  box-shadow: none !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+.adminbar__icon:focus{ outline: none; }
+
+.adminbar__icon svg{
+  stroke: var(--brand);
+  transition: transform .12s ease;
+}
+.adminbar__icon:hover svg{ transform: translateY(-1px); }
+
+/* ---- chat bubble เป็นวงกลมแดง + … สีขาว ---- */
+.adminbar__icon--chat::before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:50%;
+  background: var(--brand);
+  transform: scale(.88);
+}
+.adminbar__icon--chat svg{ stroke:#fff; z-index:1; }
+.adminbar__icon--chat::after{
+  content:"…";
+  position:absolute;
+  color:#fff; font-weight:700; font-size:14px; line-height:1;
+  transform: translateY(2px);
+  z-index:2;
+}
+
+/* ---- กระดิ่ง + badge + จุดสถานะ ---- */
+.adminbar__icon--bell{ position: relative; }
+.adminbar__icon--bell .adminbar__badge{
+  position:absolute;
+  top:-4px; right:-2px;
+  min-width:18px; height:18px; padding:0 5px;
+  display:flex; align-items:center; justify-content:center;
+  background:#ff5a78; color:#fff;
+  font-size:11px; line-height:18px; font-weight:700;
+  border-radius:999px;
+  border:2px solid var(--header-cream);
+  pointer-events:none;
+}
+.adminbar__icon--bell .adminbar__dot{
+  position:absolute;
+  bottom:-1px; left:50%;
+  width:6px; height:6px; border-radius:50%;
+  background: var(--brand);
+  transform: translateX(-50%);
+  pointer-events:none;
+}
+
+/* ---- search pill (ขนาดพอดีรูปตัวอย่าง) ---- */
+.adminbar__searchWrap{ position:relative; }
+.adminbar__search{
+  width: clamp(200px, 28vw, 360px);
+  height: 40px;
+  padding: 10px 44px 10px 16px;
+  border: 1.5px solid var(--brand);
+  border-radius: 999px;
+  background:#fff;
+}
+.adminbar__search::placeholder{ color:#855; opacity:.7; }
+.adminbar__searchIcon{
+  position:absolute; right:12px; top:50%;
+  transform: translateY(-50%);
+  width:18px; height:18px; stroke: var(--brand);
+  pointer-events:none;
+}
+
+/* KPI / panels (ใช้ร่วมกับ Dashboard) */
+.kpi {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.kpi__card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 16px;
+}
+.kpi__label {
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.kpi__value {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  margin-top: 10px;
+}
+.panel__title {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f1f1;
+  text-align: left;
+}
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #eee;
+}
+.pill--pending {
+  background: #fff5cc;
+}
+.pill--paid {
+  background: #e9fff0;
+}
+.pill--processing {
+  background: #eaf2ff;
+}
+.pill--cancelled {
+  background: #ffe9ea;
+}
+
+@media (max-width: 1000px) {
+  .kpi {
+    grid-template-columns: repeat(2, 1fr);
+  }
+   .adm__body {
+    grid-template-columns: 1fr;
+  }
+  .adm__side {
+    position: sticky;
+    top: 60px;
+    height: auto; /* ให้ sidebar ปรับตามเนื้อหา */
+    z-index: 4;
+  }
+}
+

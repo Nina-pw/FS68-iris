@@ -1,0 +1,341 @@
+/* ---- SCOPED ONLY TO PRODUCT DETAIL PAGE ---- */
+.pt-90 {
+  padding-top: 90px;
+}
+
+/* ใช้เฉพาะในหน้า detail เท่านั้น */
+.product-single {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ถ้าหน้าเว็บของคุณมีกริดอยู่แล้ว (Bootstrap/ฯลฯ) 
+   สามารถลบบล็อคนี้ทิ้งได้ แต่ถ้าต้องการกริดง่าย ๆ ในหน้านี้ ให้คงไว้
+*/
+.product-single .row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 10px;
+}
+@media (min-width: 992px) {
+  .product-single .row {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.product-single__name {
+  font-size: 35px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  font-family: "Montserrat", sans-serif;
+  /* letter-spacing: 0.04em; */
+  /* font-family: "Canela", "Playfair Display", "Noto Serif Thai", serif; */
+  /* font-family: "Quattrocento", "Noto Serif Thai", serif; */
+}
+
+.product-single__price {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  font-family: "Montserrat", sans-serif;
+}
+.product-single .current-price {
+  font-family: "Montserrat", sans-serif; /* ฟอนต์ราคาหลัก */
+  font-size: 26px; /* ↑/↓ ปรับขนาดได้ */
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.product-single__short-desc,
+.product-single__short-desc p {
+  color: #2d2d2d;
+  line-height: 1.75;
+  font-size: 18px;
+  /* font-family: "Inter", "Noto Sans Thai", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important; */
+  font-family: "Montserrat", sans-serif;
+  margin: 12px 0 16px;
+}
+
+/* Gallery */
+.product-single .ps-gallery {
+  display: grid;
+  gap: 14px;
+}
+.product-single .ps-gallery__stage {
+  position: relative;
+  width: 100%;
+  /* เดิมเป็น 1:1 → ให้กว้างแนวนอนมากขึ้น */
+  aspect-ratio: 4 / 3;              /* กว้างขึ้น */
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f7f4ef;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.product-single .ps-gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.product-single .ps-gallery__placeholder {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #f1efe9,
+    #f1efe9 10px,
+    #ece9e2 10px,
+    #ece9e2 20px
+  );
+}
+.product-single .ps-gallery__nav {
+   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;                 /* ใหญ่ขึ้น + วงกลม */
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.29);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+  cursor: pointer;
+  display: inline-flex;         /* จัดกึ่งกลาง icon */
+  align-items: center;
+  justify-content: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.product-single .ps-gallery__nav:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,.14);
+}
+.product-single .ps-gallery__nav .nav-icon {
+  font-size: 22px;
+  line-height: 1;
+  color: #eaeaeaff;
+  border: none;
+}
+.product-single .ps-gallery__nav--prev {
+  left: 12px;
+}
+.product-single .ps-gallery__nav--next {
+  right: 12px;
+}
+.product-single .ps-gallery__thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+}
+.product-single .ps-thumb {
+ border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.product-single .ps-thumb img {
+  width: 100%;
+  height: 64px;
+  object-fit: cover;
+  display: block;
+}
+.product-single .ps-thumb--active {
+  border-color: #b25c57;
+  transform: translateY(-2px);
+}
+
+/* Shades */
+.product-single .shade-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-top: 2px;
+}
+.product-single .shade {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid #eee;
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.product-single .shade.is-selected {
+  border-color: #b25c57;
+  box-shadow: 0 0 0 4px rgba(178,92,87,.12); /* วงไฮไลต์เมื่อเลือก */
+}
+.product-single .shade:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.product-single .shade__dot {
+  width: 24px; /* ↑/↓ ปรับขนาดวงกลม */
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #ddd; /* เส้นขอบวงกลม */
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.03);
+}
+.product-single .shade__label {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  /* letter-spacing: 0.5em; */
+}
+
+/* Qty + Add to cart */
+.product-single .product-single__addtocart {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+.product-single .qty-control {
+  display: inline-flex;
+  align-items: center;
+  /* gap: 1px; */
+  overflow: hidden;
+  background: transparent; 
+
+}
+.product-single .qty-control__btn {
+ width:36px; height:36px;
+  border-radius:50%;
+  border:none;
+  background:#f3e7e6;
+  color:#7b3b36;
+  font-size:18px; font-weight:700; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.08) inset, 0 1px 2px rgba(0,0,0,.04);
+  cursor:pointer;
+  transition:transform .1s ease, box-shadow .1s ease;
+}
+.product-single .qty-control__btn:hover {
+  transform: translateY(-1px);
+}
+.product-single .qty-control__number {
+  width: 72px;
+  height: 44px;
+  border: none;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #3b2a27;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}
+.product-single .btn.btn-primary.btn-addtocart {
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  background: #c6756f;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(198,117,111,.22);
+  font-family: "Montserrat", sans-serif;
+}
+.product-single .btn.btn-primary.btn-addtocart:hover {
+  filter: brightness(.98);
+}
+.product-single .btn.btn-primary.btn-addtocart.disabled,
+.product-single .btn.btn-primary.btn-addtocart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.product-single .qty-control__number::-webkit-outer-spin-button,
+.product-single .qty-control__number::-webkit-inner-spin-button{
+  -webkit-appearance:none; margin:0;
+}
+.product-single .qty-control__number{ appearance:textfield; }
+
+/* ---- ลบ/อย่าใช้ตัวพวกนี้ เพราะจะไปรบกวนหน้าอื่น ----
+.container, .row (global), .h3, .text-uppercase, ฯลฯ
+*/
+.text-uppercase {
+  font-size: 30px;
+  font-weight: 500;
+  color: #b25c57aa;
+  font-family: "Montserrat", sans-serif;
+  /* font-family: "Quattrocento", "Noto Serif Thai", serif; */
+}
+
+/* ===== Rare-Beauty-ish header ===== */
+.rb-subtitle {
+  margin-top: 6px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: #6b6b6b;
+  font-family: "Montserrat", sans-serif;
+}
+.rb-subtitle .rb-shade-name {
+  font-weight: 600;
+  color: #222;
+}
+
+/* Shade header */
+.shade-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.shade-header__title {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #6b6b6b;
+}
+.shade-header__current {
+  font-size: 14px;
+  color: #222;
+}
+
+/* ปุ่ม Add to Cart โทน Rare */
+.product-single .btn.btn-primary.btn-addtocart {
+  background: #b25c57;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-weight: 600;
+}
+
+/* ===== ย่อรูปใหญ่ฝั่งซ้ายให้เล็กลงบนจอใหญ่ ===== */
+@media (min-width: 992px) {
+  .product-single .ps-gallery {
+    max-width: 450px; /* ↑/↓ ลิมิตความกว้างของคอลัมน์รูป */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .product-single .ps-gallery__stage {
+    aspect-ratio: 4 / 5; /* เปลี่ยนสัดส่วนให้ดูสูงเพรียวขึ้น (หรือ 1/1 ถ้าชอบจัตุรัส) */
+    border-radius: 16px;
+  }
+  .product-single .ps-gallery__thumbs img {
+    height: 56px; /* ย่อรูป thumbnail ให้เหมาะกับการย่อรูปหลัก */
+  }
+}
+
+/* ปรับปุ่ม +/– ให้เข้ากับสเกลใหม่เล็กน้อย (อเลือก) */
+.product-single .qty-control__btn {
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+}
+.product-single .qty-control__number {
+  width: 56px;
+  height: 36px;
+  font-size: 16px;
+}
+.product-single .shade__dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}

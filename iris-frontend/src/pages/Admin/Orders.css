@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fffff6;
+  color: #333;
+}
+
+/* ==================== Panel ==================== */
+.panel {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin: 24px auto;
+  max-width: 1100px;
+}
+
+.panel__title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #821919;
+  margin-bottom: 24px;
+}
+
+/* ==================== Table ==================== */
+.panel__content {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #821919;
+  color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1c5c5;
+  text-align: left;
+}
+
+.table th {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr:hover {
+  background-color: #ffeaea;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* ==================== Pill (Status) ==================== */
+.pill {
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.pill--pending {
+  background-color: #f0ad4e;
+}
+.pill--completed {
+  background-color: #5cb85c;
+}
+.pill--cancelled {
+  background-color: #d9534f;
+}
+
+/* ==================== Order Detail ==================== */
+.order-detail-container {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin: 24px auto;
+  max-width: 1200px;
+}
+
+.order-detail-container h1 {
+  color: #821919;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.order-detail-container h2 {
+  margin-top: 28px;
+  color: #821919;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.order-detail-container p {
+  margin: 6px 0;
+  color: #444;
+  font-size: 1rem;
+}
+
+/* ==================== Button / Link ==================== */
+.btn-link {
+  display: inline-block;
+  margin-top: 24px;
+  color: #821919;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid #821919;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.btn-link:hover {
+  background-color: #821919;
+  color: #fff;
+}
+
+/* ==================== Loading / Empty State ==================== */
+.loading,
+.empty {
+  text-align: center;
+  color: #821919;
+  padding: 24px;
+  font-size: 1.1rem;
+}
+
+
+.panel__subtitle {
+  font-size: 18px;
+  color: #374151;
+  margin-bottom: 20px;
+  font-weight: 500;
+}

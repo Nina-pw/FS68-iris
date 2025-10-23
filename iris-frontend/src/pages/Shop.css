@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap');
+
+/* ----------------- Shop Container ----------------- */
+.shop-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #5c1a24;
+  transition: all 0.3s ease;
+}
+
+/* ----------------- Toolbar ----------------- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.searchWrap {
+  position: relative;
+  width: min(380px, 100%);
+}
+
+.search {
+  width: 100%;
+  padding: 10px 40px 10px 14px;
+  border: 1.5px solid #c8aeb0;
+  border-radius: 50px;
+  background: #fff;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.search:focus {
+  outline: none;
+  border-color: #7b1e2b;
+  box-shadow: 0 0 8px rgba(123, 30, 43, 0.2);
+}
+
+.searchIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7b1e2b;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  font-family: 'Inter', sans-serif;
+}
+
+.chip {
+  padding: 6px 14px;
+  border: 1px solid #7b1e2b;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 13px;
+  color: #7b1e2b;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.chip:hover {
+  background: #f9efee;
+  transform: scale(1.05);
+}
+
+.chip.is-active {
+  background: #f3e1df;
+  border-color: #caa4a4;
+  font-weight: 600;
+  transform: scale(1.05);
+}
+
+/* ----------------- Product Grid ----------------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px;
+  justify-content: start; /* ชิดซ้าย */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ----------------- Product Card ----------------- */
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 450px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  background: var(--hover-color);
+}
+
+
+/* Product Image */
+.product-img {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: #f5e8e6;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  /* transition: transform 0.3s ease; */
+}
+
+/* Product Image */
+.product-card:hover .product-img img {
+  /* transform: scale(1.02); subtle image zoom */
+}
+
+.product-img img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Product Info */
+.product-info {
+  padding: 14px 10px 6px;
+  text-align: center;
+  min-height: 70px;
+  transition: color 0.3s ease;
+}
+
+.product-name {
+  font-size: 15px;
+  color: #6c5052;
+  margin-bottom: 4px;
+  min-height: 38px;
+}
+
+.product-price {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #3d1c1c;
+}
+
+/* ----------------- Button ----------------- */
+.product-btn {
+  width: 90%;
+  margin-bottom: 12px;
+  border: 1.5px solid #7b1e2b; /* ขอบแดง */
+  border-radius: 12px;
+  background: transparent; /* ปกติไม่มีสี */
+  color: #7b1e2b;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 12px 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.product-btn:hover {
+  background: #8f081a87; /* เติมสีเมื่อ hover */
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.product-btn.disabled {
+  background: #f6f0f0;
+  color: #b99c9c;
+  border-color: #f6f0f0;
+  cursor: not-allowed;
+}
+
+/* Placeholder */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f1f1f1;
+}
+
+/* No products */
+.no-products {
+  grid-column: 1 / -1;
+  color: #7b1e2b;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* ----------------- Pagination ----------------- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.pagination button {
+  font-family: 'Inter', sans-serif;
+  padding: 6px 12px;
+  border: 1px solid #e6dad5;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  min-width: 36px;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(.active) {
+  background: #f3e1df;
+  transform: scale(1.1);
+}
+
+.pagination button.active {
+  background: #7b1e2b;
+  color: #fff;
+  font-weight: 400;
+}
+
+.pagination .dot {
+  padding: 6px 8px;
+  color: #7b1e2b;
+  font-weight: 400;
+}

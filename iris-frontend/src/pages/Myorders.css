@@ -1,0 +1,20 @@
+.orders-container { max-width: 980px; margin: 24px auto; padding: 0 16px; }
+.orders-title { font-size: 28px; margin-bottom: 16px; }
+
+.orders-table { display: grid; gap: 8px; }
+.orders-head, .orders-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 2fr 1.4fr 1fr;
+  gap: 8px;
+  align-items: center;
+}
+.orders-head { font-weight: 600; color: #666; }
+.orders-row { padding: 10px 12px; border-radius: 10px; background: #fafafa; }
+.orders-row.is-latest { outline: 2px solid #ff9f1a; background: #fff8ef; }
+
+.btn-link { text-decoration: underline; }
+
+.status-badge { padding: 3px 8px; border-radius: 999px; font-size: 12px; }
+.status-pending { background:#fff3cd; color:#856404; }
+.status-paid { background:#d4edda; color:#155724; }
+.status-cancelled { background:#f8d7da; color:#721c24; }

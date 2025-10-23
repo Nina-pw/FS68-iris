@@ -1,0 +1,348 @@
+/* ---- โครงหลัก ---- */
+.admin {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+  background: #fff;
+}
+.admin__sidebar {
+  border-right: 1px solid #eee;
+  padding: 16px;
+}
+.admin__brand {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.admin__sectionTitle {
+  font-size: 12px;
+  color: #8a8a8a;
+  margin: 12px 0 6px;
+}
+.admin__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.admin__menuItem {
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #333;
+  text-decoration: none;
+}
+.admin__menuItem.active,
+.admin__menuItem:hover {
+  background: #ffe6ea;
+  color: #7b1e2b;
+}
+
+.admin__content {
+  padding: 16px 20px;
+  min-width: 0;
+}
+
+/* ---- Topbar ---- */
+.admin__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 10px;
+}
+.admin__searchWrap {
+  position: relative;
+  width: min(360px, 56vw);
+}
+.admin__search {
+  width: 100%;
+  border: 1px solid #eee1da;
+  border-radius: 999px;
+  padding: 10px 36px 10px 14px;
+  background: #fff;
+}
+.admin__searchIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7b1e2b;
+  opacity: 0.9;
+}
+.admin__actions {
+  display: flex;
+  gap: 8px;
+}
+/* ===== Shell ===== */
+.adminShell{
+  width: var(--safe-vw);
+  margin-left: calc(50% - var(--safe-vw)/2);
+  margin-right: calc(50% - var(--safe-vw)/2);
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 0;
+  min-height: calc(100vh - 100px);
+  background: #fff;
+}
+
+.adminAside{
+  border-right: 1px solid #eee5df;
+  padding: 16px;
+  background: #fff;
+}
+.adminBrand{
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.adminMenuHead{
+  font-size: 12px;
+  color: #9a8d86;
+  margin: 12px 0 6px;
+}
+.adminMenu{ display: flex; flex-direction: column; gap: 6px; }
+.adminMenuItem{
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #333;
+  text-decoration: none;
+}
+.adminMenuItem.active, .adminMenuItem:hover{
+  background: #ffe6ea;
+  color: #7b1e2b;
+}
+
+.adminMain{ padding: 14px 18px 24px; background: #faf9f7; }
+
+/* ===== Topbar ===== */
+.adminTopbar{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: 16px;
+}
+.adminSearchWrap{ width: min(420px, 100%); }
+.adminSearch{
+  width:100%; height:40px; border:1px solid #e3d7d1; border-radius:999px;
+  padding: 8px 14px;
+  background:#fff;
+}
+.adminTopIcons{ display:flex; gap:8px; }
+.adminIconBtn{
+  width:36px; height:36px; border-radius:8px; border:1px solid #eee2db;
+  background:#fff; cursor:pointer;
+}
+.adminPageTitle{ font-weight: 700; margin-bottom: 10px; }
+
+/* ===== KPI / Panels / Table (ใช้ของเดิมต่อได้) ===== */
+
+
+.iconBtn {
+  border: 1px solid #eee1da;
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* ---- GRID บอดี้ ---- */
+.ad__grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 14px;
+}
+.ad__left {
+  display: block;
+}
+.ad__right {
+  display: block;
+}
+
+/* ---- KPI ---- */
+.kpi {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.kpi__card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 16px;
+  position: relative;
+}
+.kpi__card--split .split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 6px;
+}
+.kpi__label {
+  color: #777;
+  font-size: 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.kpi__value {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+.kpi__value.sm {
+  font-size: 18px;
+}
+.kpi__sub {
+  font-size: 12px;
+  color: #888;
+  margin-top: 6px;
+}
+.up {
+  color: #0a915a;
+}
+.down {
+  color: #c24141;
+}
+.btn--linkR {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  border: none;
+  background: #fff;
+  color: #7b1e2b;
+  cursor: pointer;
+}
+.btn--link {
+  border: none;
+  background: transparent;
+  color: #7b1e2b;
+  cursor: pointer;
+}
+.btn--ghost.sm {
+  border: 1px solid #eee;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+/* ---- Panel ---- */
+.panel {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+}
+.panel__title {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.panel__title .tabs {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+}
+.tab {
+  border: 1px solid #eee;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tab.is-active {
+  background: #ffe6ea;
+  border-color: #f0c4c8;
+}
+
+/* ---- Chart ---- */
+.chart {
+  padding: 12px 16px;
+}
+.chart svg {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+.chart__axis {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 12px;
+  color: #777;
+  padding: 6px 2px 10px;
+}
+
+/* ---- Table ---- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f1f1;
+  text-align: left;
+}
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #eee;
+  text-transform: capitalize;
+}
+.pill--pending {
+  background: #fff5cc;
+}
+.pill--paid,
+.pill--completed {
+  background: #e9fff0;
+}
+.pill--processing {
+  background: #eaf2ff;
+}
+.pill--cancelled {
+  background: #ffe9ea;
+}
+
+/* ---- Top products ---- */
+.list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.list__item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #f4f4f4 center/cover;
+}
+.meta .title {
+  font-size: 14px;
+}
+.meta .price {
+  font-size: 12px;
+  color: #666;
+}
+
+@media (max-width: 1100px) {
+  .ad__grid {
+    grid-template-columns: 1fr;
+  }
+  .kpi {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 900px) {
+  .admin {
+    grid-template-columns: 1fr;
+  }
+  .admin__sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+  }
+}

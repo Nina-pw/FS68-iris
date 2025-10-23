@@ -1,0 +1,201 @@
+/* จัดตำแหน่งตรงกลาง */
+
+/* รีเซ็ต margin/padding ของหน้าเว็บ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.auth-container {
+  height: calc(100vh - 70px); /* ลบความสูง navbar (70px) */
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* พื้นหลังแบบไล่สี */
+  background: radial-gradient(
+    circle at center,
+    #fffff6 0%,
+    #fffff6 40%,
+    #f7c3c3 100%
+  );
+
+  font-family: Arial, sans-serif;
+}
+.auth-container1 {
+  height: calc(110vh - 70px); /* ลบความสูง navbar (70px) */
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* พื้นหลังแบบไล่สี */
+  background: radial-gradient(
+    circle at center,
+    #fffff6 0%,
+    #fffff6 40%,
+    #f7c3c3 100%
+  );
+
+  font-family: Arial, sans-serif;
+}
+
+
+/* .auth-box {
+  display: flex;
+  flex-direction: row;
+  width: 800px;          
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+}
+
+.auth-left {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.auth-box {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  background: #fffff6;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  position: relative; /* สำหรับ pseudo-element */
+}
+
+/* เส้นคั่นกลาง */
+.auth-box::before {
+  content: "";
+  position: absolute;
+  top: 20px; /* ไม่ชิดขอบบน */
+  bottom: 20px; /* ไม่ชิดขอบล่าง */
+  left: 50%; /* กึ่งกลาง */
+  transform: translateX(-50%);
+  width: 1px; /* ความหนาเส้น */
+  background-color: rgba(0, 0, 0, 0.2); /* สีเส้นอ่อน */
+  border-radius: 1px;
+}
+
+.auth-left,
+.auth-right {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box; /* รวม padding กับ width */
+}
+
+.auth-logo {
+  max-width: 90%;
+  height: auto;
+}
+
+/* กล่องฟอร์ม */
+.auth-form {
+  background: #fffff6;
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  width: 90%; /* แทนที่จะ fix 350px */
+  max-width: 350px; /* ไม่ให้ใหญ่เกินไป */
+  padding: 40px 20px;
+  text-align: center;
+  /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); */
+}
+
+/* หัวข้อ */
+.auth-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #000000;
+  font-family: Garamond, Georgia, "Times New Roman";
+}
+
+/* ช่องกรอก */
+.auth-form input {
+  width: 90%; /* ยาวเท่าปุ่ม */
+  padding: 12px 14px;
+  margin: 15px auto; /* จัดกลาง */
+  display: block;
+  border: 1px solid #bdb6b6;  /* เพิ่มเส้นขอบอ่อนๆ */
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+   background-color: #ffffff; /* ✅ พื้นหลังขาว */
+  color: #000000; 
+  
+}
+
+.auth-form button {
+  width: 90%; /* ให้เท่ากับ input */
+  padding: 12px;
+  margin: 15px auto 0; /* จัดกลาง */
+  display: block;
+  background-color: #150d62;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #feaeb4;
+}
+
+/* ลิงก์ */
+.auth-form p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #000000;
+}
+
+.auth-form a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.ft__social {
+  display: flex;
+  justify-content: center;  /* จัดให้อยู่กึ่งกลางแนวนอน */
+  align-items: center;      /* จัดให้อยู่กึ่งกลางแนวตั้ง (ถ้าสูงขึ้น) */
+  gap: 16px;                /* ระยะห่างระหว่างปุ่ม */
+  margin-top: 20px;         /* เว้นระยะจากปุ่ม Login ด้านบน */
+  font-size: 20px;
+}
+
+.ft__social a.google {
+  color: inherit; /* ให้ใช้สี default จากไอคอน */
+}
+
+/* Facebook เป็นฟ้า */
+.ft__social a.facebook {
+  color: #1877f2;
+}
+
+/* Apple เป็นดำ */
+.ft__social a.apple {
+  color: #000;
+}

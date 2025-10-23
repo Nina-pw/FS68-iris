@@ -1,0 +1,16 @@
+name: fs-iris
+services:
+  frontend:
+    container_name: iris-frontend
+    build: .
+    ports:
+      # ถ้าเป็น dev (Vite) ใช้พอร์ต 5173
+      - "${NGINX_PORT:-5173}:5173"
+    networks:
+      - fs-net
+    environment:
+      - NGINX_PROXY=${NGINX_PROXY:-http://iris-backend:3000}
+      - NGINX_PORT=${NGINX_PORT:-5173}
+networks:
+  fs-net:
+    external: true

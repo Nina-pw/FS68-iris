@@ -1,0 +1,172 @@
+.checkout-container {
+  display: flex;                 /* ✅ บังคับให้เป็น 2 คอลัมน์ */
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem 3rem;
+  background-color: #fdfcf8;
+  font-family: "Inter", sans-serif;
+  color: #2e2e2e;
+}
+
+.checkout-left {
+  flex: 1;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.checkout-right {
+  flex: 1;
+  background: #fffaf6;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+.qr-box {
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: #fafafa;
+  margin-top: 1rem;
+}
+
+.qr-meta {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #d61e5b;
+}
+
+.contact-section, .delivery-section {
+  margin-top: 2rem;
+}
+
+.contact-section input,
+.delivery-section input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.two-cols {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.item-left img {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.qty-badge {
+  background: #d8d8d8;
+  color: #333;
+  font-size: 12px;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+}
+
+.discount-box {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.discount-box input {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.discount-box button {
+  background: #d61e5b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.summary {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d61e5b;
+}
+
+h2, h3, h4 {
+  font-family: "Playfair Display", serif;
+  color: #b3121b;  /* สีแดงไวน์ของ IRIS */
+  margin-bottom: 0.75rem;
+}
+
+p, label, input, textarea {
+  font-family: "Inter", sans-serif;
+}
+
+button, .btn-submit {
+  background-color: #b3121b;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover, .btn-submit:hover {
+  background-color: #911017;
+}
+

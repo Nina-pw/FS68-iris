@@ -1,0 +1,316 @@
+/* ProductCard.css */
+.p-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.p-card__imageWrap {
+  display: block;
+}
+.p-card__img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.p-card__meta {
+  padding: 10px 12px;
+}
+.p-card__name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  margin: 0 0 4px;
+  color: #333;
+  margin-top: 5px;
+}
+.p-card__price {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+.p-card__btn {
+  margin: 0 12px 12px;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
+.p-card--noCta .p-card__btn {
+  display: none;
+} /* ← ซ่อนปุ่มเมื่อใช้โหมดโชว์อย่างเดียว */
+.p-card--noCta {
+  padding-bottom: 12px;
+} /* เก็บระยะล่างให้สวย */
+
+/* ===== Bestsellers layout tweaks (เพิ่ม/แทนที่บางส่วน) ===== */
+.section--bestsellers .bestsellers-headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.bestseller-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-btn {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: rgba(80, 20, 30, 0.9);
+  display: grid;
+  place-items: center;
+  z-index: 5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* main horizontal scroller */
+.bestseller-scroll {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding: 12px 20px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; /* เพิ่มตรงนี้ */
+  -webkit-overflow-scrolling: touch;
+  align-items: start;
+}
+
+.bestseller-scroll > * {
+  flex: 0 0 25%;
+  min-width: 260px;
+  max-width: 360px;
+  scroll-snap-align: start; /* snap ที่ขอบการ์ด */
+}
+
+/* ===== ProductCard styles (if you put them in one file) ===== */
+.product-card {
+  background: transparent;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+/* image area */
+.product-image-wrap {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  min-height: 260px;
+  height: 320px;
+  overflow: hidden;
+}
+.product-image-wrap img.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  display: block;
+}
+
+/* badges (like "Gentle" or bestseller pill) */
+.badges {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  display: flex;
+  gap: 8px;
+}
+.badge {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  color: #333;
+}
+
+/* swatches row */
+.swatches-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.swatch-arrow {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px;
+  color: rgba(98, 30, 50, 0.9);
+}
+
+/* viewport กว้างพอดี 4 swatches */
+.swatches-viewport {
+  overflow: hidden; /* ซ่อน scrollbar */
+  width: calc(36px * 4 + 10px * 3); /* 4 วงกลม + 3 ช่องว่าง */
+}
+
+/* list ของ swatches */
+.swatches {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto; /* ต้องมีไว้เพื่อให้ scrollBy ทำงาน */
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* บังคับ snap */
+}
+
+/* ซ่อน scrollbar จริง ๆ */
+.swatches::-webkit-scrollbar {
+  display: none;
+}
+.swatches {
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* highlight swatch ที่ hover */
+.swatch:hover {
+  border-color: var(--brand); /* เปลี่ยนสีขอบ */
+  box-shadow: 0 0 0 3px rgba(98, 7, 32, 0.25); /* วงแหวนรอบ swatch */
+}
+
+.swatch {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(98, 30, 50, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  scroll-snap-align: start; /* snap แต่ละวงกลม */
+}
+
+/* meta area */
+.product-meta {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.product-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #2a2a2a;
+  margin: 0;
+}
+.product-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+.product-price {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.add-to-cart {
+  border-radius: 999px;
+  padding: 12px 22px;
+  border: 1px solid rgba(98, 7, 32, 0.35);
+  background: transparent;
+  color: var(--brand);
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  transition: all 0.3s ease; /* เพิ่ม transition */
+}
+.add-to-cart.outlined {
+  opacity: 0.6;
+}
+.add-to-cart:hover {
+  background: var(--brand);
+  color: #fff;
+  transform: scale(1.05) translateY(-2px); /* ขยาย + ขยับขึ้นเล็กน้อย */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .bestseller-scroll > * {
+    flex: 0 0 45%;
+    min-width: 320px;
+  }
+}
+@media (max-width: 640px) {
+  .bestseller-scroll {
+    padding: 12px;
+    gap: 14px;
+  }
+  .bestseller-scroll > * {
+    flex: 0 0 75%;
+    min-width: 260px;
+  }
+  .product-image-wrap {
+    height: 260px;
+    padding: 18px;
+  }
+}
+
+/* หัวใจคือสองบรรทัดนี้ */
+.product-image-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* ให้เป็นสี่เหลี่ยมจัตุรัสเท่ากันทุกใบ */
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #f5f2ef;
+}
+
+/* ProductCard.css */
+.product-image {
+  width: 100%;
+  height: 240px;          /* ปรับตามดีไซน์ */
+  aspect-ratio: 4 / 5;    /* หรือ 1/1 ก็ได้ */
+  object-fit: cover;
+  display: block;
+}
+.product-image--ph {      /* กล่อง placeholder ให้สูงเท่ารูปจริง */
+  width: 100%;
+  height: 240px;
+  aspect-ratio: 4 / 5;
+  background: #f5f2ef;
+  display: grid;
+  place-items: center;
+}
+.product-image-wrap.is-clickable { cursor: pointer; }
+
+
+.badges {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.badge {
+  font-size: 10px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #eee1da;
+}
+
