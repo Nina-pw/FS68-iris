@@ -57,116 +57,114 @@
 # IRIS Project Setup Guide
 
 ## ขั้นตอนหลังจาก Clone Project
-หลังจาก git clone โปรเจกต์มาแล้ว ให้ทำตามลำดับดังนี้
+หลังจาก `git clone` โปรเจกต์มาแล้ว ให้ทำตามลำดับดังนี้
 
 ---
 
 ### Database (iris-db)
 
 1. เข้าโฟลเดอร์  
-   
-bash
+   ```bash
    cd ./iris-db/
+   ```
 
 2. ติดตั้ง dependencies  
-   
-bash
+   ```bash
    npm i
+   ```
 
-3. เพิ่มไฟล์ .env โดยอิงค่าจาก docker-compose.yml
+3. เพิ่มไฟล์ `.env` โดยอิงค่าจาก `docker-compose.yml`
 
 4. ตรวจสอบสิทธิ์ไฟล์ init script  
    - **macOS / Linux:**  
-     
-bash
-     chmod +x ./_entrypoint/init.sh 
-
+     ```bash
+     chmod +x ./_entrypoint/init.sh
+     ```
    - **Windows:**  
-     ตรวจสอบว่าไฟล์ .sh ใช้ **LF** (ไม่ใช่ CRLF)
+     ตรวจสอบว่าไฟล์ `.sh` ใช้ **LF** (ไม่ใช่ CRLF)
 
 5. รัน container  
-   
-bash
+   ```bash
    docker compose up -d
+   ```
 
 ---
 
 ### Backend (iris-backend)
 
 1. เข้าโฟลเดอร์  
-   
-bash
-   cd ./iris-backend/  
+   ```bash
+   cd ./iris-backend/
+   ```
 
 2. ติดตั้ง dependencies  
-   
-bash
+   ```bash
    npm i
+   ```
 
 3. **กรณีรันด้วย Docker:**  
-   
-bash
+   ```bash
    docker compose --env-file ./.env.docker up -d --force-recreate --build
+   ```
 
 4. **กรณีรันบน Local:**  
-   
-bash
-   npm run dev  
-
-   (ใช้ไฟล์ .env สำหรับค่า environment)
+   ```bash
+   npm run dev
+   ```
+   (ใช้ไฟล์ `.env` สำหรับค่า environment)
 
 ---
 
 ### Frontend (iris-frontend)
 
 1. เข้าโฟลเดอร์  
-   
-bash
+   ```bash
    cd ./iris-frontend/
+   ```
 
 2. ติดตั้ง dependencies  
-   
-bash
+   ```bash
    pnpm i
+   ```
 
 3. **กรณีรันด้วย Docker:**  
-   
-bash
+   ```bash
    docker compose --env-file ./.env.local up -d --force-recreate --build
+   ```
 
 4. **กรณีรันบน Local:**  
-   
-bash
+   ```bash
    pnpm run dev
-
-   จากนั้นคลิกลิงก์ http://localhost:xxxx เพื่อเปิดหน้าเว็บ
+   ```
+   จากนั้นคลิกลิงก์ `http://localhost:xxxx` เพื่อเปิดหน้าเว็บ
 
 ---
 
 ## Seed ข้อมูลเบื้องต้นใน Database
 
 ### กรณีรันบน Local
-bash
+```bash
 cd ./iris-backend/db/
 npm run db:generate
 npm run db:push
 npm run seed:products
+```
 
 ### กรณีรันบน Docker
 1. เปิด Docker Desktop  
-2. ไปที่ container iris-backend → เปิดแท็บ **Exec**
+2. ไปที่ container `iris-backend` → เปิดแท็บ **Exec**
 3. รันคำสั่งต่อไปนี้:
-   
-bash
+   ```bash
    npm run db:generate
    npm run db:push
    npm run seed:products
+   ```
 
 ---
 
 ## 💡 Tips
 
-- หากเจอปัญหา Permission denied ตอนรันสคริปต์ ให้ตรวจสอบว่าไฟล์ .sh เป็น **LF**
-- หากเจอ error FATAL: password authentication failed ให้ตรวจสอบค่า POSTGRES_USER และ POSTGRES_PASSWORD ในไฟล์ .env และ docker-compose.yml
+- หากเจอปัญหา `Permission denied` ตอนรันสคริปต์ ให้ตรวจสอบว่าไฟล์ `.sh` เป็น **LF**
+- หากเจอ error `FATAL: password authentication failed` ให้ตรวจสอบค่า `POSTGRES_USER` และ `POSTGRES_PASSWORD` ในไฟล์ `.env` และ `docker-compose.yml`
 
 ---
